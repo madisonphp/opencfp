@@ -6,11 +6,11 @@ body {
 }
 
 a {
-  color: #e24b3b;
+  color: #b70610;
 }
 
 a:hover {
-  color: #e97467;
+  color: #b70610;
 }
 
 .dashboard {
@@ -18,9 +18,14 @@ a:hover {
 }
 
 .header {
-  background: #e24b3b;
+  background-color: #000;
+  background-image: url('../img/madison-skyline.jpg');
+  background-size: cover;
+  background-position: center bottom;
   color: #FFF;
+  font-weight: bold;
   padding: 6rem 0;
+  text-align: center;
 }
 
 .sidebar {
@@ -47,7 +52,7 @@ a:hover {
 }
 
 .section--primary {
-  background: #e24b3b;
+  background: #b70610;
   color: #FFF;
 }
 
@@ -140,12 +145,12 @@ a:hover {
  */
 .btn-opencfp--primary {
   background: #FFF;
-  color: #e24b3b;
+  color: #b70610;
 }
 
 .btn-opencfp--primary:hover {
   background: #F7F7F7;
-  color: #e24b3b;
+  color: #b70610;
 }
 
 .btn-opencfp--light {
@@ -166,7 +171,7 @@ a:hover {
 
 .btn-opencfp--outlined:hover {
   background: #FFF;
-  color: #e24b3b;
+  color: #b70610;
 }
 
 .btn-opencfp--centered {
@@ -184,7 +189,7 @@ a:hover {
 }
 
 .module__header {
-  background: #e24b3b;
+  background: #b70610;
   color: #FFF;
   padding: 1rem 2rem;
 }
@@ -252,7 +257,7 @@ a:hover {
 .primary-text,
 .megaphone-cover,
 .megaphone-end {
-  fill: #e24b3b;
+  fill: #b70610;
 }
 
 .base-text,
@@ -281,7 +286,7 @@ a:hover {
 }
 
 .navbar-opencfp {
-  background: #374146;
+  background: #101010;
 }
 
 .navbar-opencfp .navbar-nav > li > a {
@@ -295,7 +300,7 @@ a:hover {
 .navbar-opencfp .navbar-nav > .active > a:hover,
 .navbar-opencfp .navbar-nav > .active > a:focus {
   background: none;
-  border-color: #e24b3b;
+  border-color: #b70610;
 }
 
 .navbar-opencfp .navbar-toggle {
