@@ -12,7 +12,7 @@ class DashboardController extends BaseController
     private function indexAction(Request $req)
     {
         $user_mapper = $this->app['spot']->mapper('OpenCFP\Domain\Entity\User');
-        $speaker_total = $user_mapper->all()->count();
+        $speaker_total = $user_mapper->all()->where(['last_login >' => '2015-06-01 00:00:00'])->count();
 
         $talk_mapper = $this->app['spot']->mapper('OpenCFP\Domain\Entity\Talk');
         $favorite_mapper = $this->app['spot']->mapper('OpenCFP\Domain\Entity\Favorite');
