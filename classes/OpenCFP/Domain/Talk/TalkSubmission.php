@@ -16,7 +16,6 @@ class TalkSubmission
         $instance->guardDescriptionIsProvided($data);
         $instance->guardTalkTypeIsValid($data);
         $instance->guardLevelIsValid($data);
-        $instance->guardCategoryIsValid($data);
 
         $instance->data = $data;
 
@@ -30,8 +29,6 @@ class TalkSubmission
             'description' => '',
             'type' => '',
             'level' => '',
-            'category' => '',
-            'desired' => '',
             'slides' => '',
             'other' => '',
             'sponsor' => '',
@@ -83,7 +80,7 @@ class TalkSubmission
      */
     private function isValidTalkType($type)
     {
-        return in_array($type, ['regular', 'tutorial']);
+        return in_array($type, ['short', 'regular', 'tutorial']);
     }
 
     private function guardLevelIsValid($data)

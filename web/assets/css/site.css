@@ -13,6 +13,10 @@ a:hover {
   color: #b70610;
 }
 
+.text-red {
+  color: #f00;
+}
+
 .dashboard {
   background: #ebeef1;
 }
@@ -23,9 +27,14 @@ a:hover {
   background-size: cover;
   background-position: center bottom;
   color: #FFF;
+  text-shadow: 0 0 5px #000000;
   font-weight: bold;
   padding: 6rem 0;
   text-align: center;
+}
+
+.header .btn-opencfp {
+  text-shadow: 0 0 0 #000000;
 }
 
 .sidebar {

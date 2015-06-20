@@ -18,11 +18,9 @@ class Talk extends Entity
             'type' => ['type' => 'string', 'length' => 50],
             'user_id' => ['type' => 'integer', 'required' => true],
             'level' => ['type' => 'string', 'length' => 50],
-            'category' => ['type' => 'string', 'length' => 50],
-            'desired' => ['type' => 'smallint', 'value' => 0],
             'slides' => ['type' => 'string', 'length' => 255],
             'other' => ['type' => 'text'],
-            'sponsor' => ['type' => 'smallint', 'value' => 0],
+            'sponsor' => ['type' => 'text'],
             'selected' => ['type' => 'smallint', 'value' => 0],
             'created_at' => ['type' => 'datetime', 'value' => new \DateTime()],
             'updated_at' => ['type' => 'datetime', 'value' => new \DateTime()]
@@ -45,8 +43,6 @@ class Talk extends Entity
             'description' => $this->description,
             'type' => $this->type,
             'level' => $this->level,
-            'category' => $this->category,
-            'desired' => $this->desired,
             'slides' => $this->slides,
             'other' => $this->other,
             'sponsor' => $this->sponsor

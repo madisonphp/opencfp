@@ -112,7 +112,6 @@ class Talk extends Mapper
             'id' => $talk->id,
             'title' => $talk->title,
             'type' => $talk->type,
-            'category' => $talk->category,
             'created_at' => $talk->created_at,
             'selected' => $talk->selected,
             'favorite' => $talk->favorite

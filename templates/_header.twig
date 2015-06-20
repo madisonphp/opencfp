@@ -4,6 +4,7 @@
                 <div class="col-md-12">
                     <img src="/assets/img/conf-logo.png" class="event-logo" alt="Madison PHP">
 
+
                     {% if cfp_open %}
                         <h1 class="headline headline-alpha">Call For Papers Now Open!</h1>
                         <h3 class="headline headline-alpha">Submissions accepted until {{ site.enddate }}</h3>
@@ -18,8 +19,7 @@
                         <h3 class="headline headline-alpha">Submissions were accepted until {{ site.enddate }}</h3>
                     {% endif %}
                     <p>
-                        {% if cfp_open %}<a class="btn-opencfp btn-opencfp-medium btn-opencfp--outlined" href="{{ url('user_new') }}">Register Now</a>{% endif %}
-                        <a class="btn-opencfp btn-opencfp-medium btn-opencfp--primary" href="{{ url('dashboard') }}">View Submissions</a>
+                        {% if cfp_open %}<a class="btn-opencfp btn-opencfp-medium btn-opencfp--primary" href="{{ url('user_new') }}">Register Now</a>{% endif %}
                     </p>
                 </div>
             </div>

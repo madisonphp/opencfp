@@ -13,8 +13,6 @@ class TalkForm extends Form
         'description',
         'type',
         'level',
-        'category',
-        'desired',
         'slides',
         'other',
         'sponsor',
@@ -46,8 +44,6 @@ class TalkForm extends Form
             $this->validateTitle() &&
             $this->validateDescription() &&
             $this->validateLevel() &&
-            $this->validateCategory() &&
-            $this->validateDesired() &&
             $this->validateSlides() &&
             $this->validateOther() &&
             $this->validateSponsor()
@@ -102,6 +98,7 @@ class TalkForm extends Form
     public function validateType()
     {
         $validTalkTypes = array(
+            'short',
             'regular',
             'tutorial'
         );
