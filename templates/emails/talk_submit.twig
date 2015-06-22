@@ -1,19 +1,20 @@
-{% block subject %}{{ title }} talk confirmation{% endblock %}
+{% block subject %}Submission Confirmation: "{{ title }}"{% endblock %}
 
 {% block from %}{{ email }}{% endblock %}
 {% block from_name %}{{ title }}{% endblock %}
 
 {% block body_html %}
 <p>
-    Thank you for the awesome talk submission. When the call for papers is over on {{ enddate }} talk selection will begin. We'll be in touch soon.
+    Thank you for submitting "{{ talk }}" to Madison PHP Conference! The call for papers will close on {{ enddate }}. We'll be in touch soon after that to let you know if your talk was submitted.
 </p>
 <p>
-    Submitted Talk Title: "{{ talk }}"
+    Don't forget, we recommend submitting more than one talk to the conference.
 </p>
 <p>&nbsp;</p>
 <p>
-    Thanks and Good Luck,<br>
-    &nbsp;&nbsp;The {{ title }} Team.
+    Thank you again for submitting!<br>
+    Andrew, Beth, Jason, and Ryan<br>
+    Madison PHP Conference Organizers
 </p>
 {% endblock %}
 
