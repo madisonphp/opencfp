@@ -150,11 +150,11 @@ class SignupForm extends Form
             return false;
         }
 
-        if ($passwd !== str_replace(" ", "", $passwd)) {
-            $this->_addErrorMessage("The submitted password contains invalid characters");
+        // if ($passwd !== str_replace(" ", "", $passwd)) {
+        //     $this->_addErrorMessage("The submitted password contains invalid characters");
 
-            return false;
-        }
+        //     return false;
+        // }
 
         return true;
     }
