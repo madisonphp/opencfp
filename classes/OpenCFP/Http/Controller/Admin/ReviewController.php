@@ -19,7 +19,7 @@ class ReviewController extends BaseController
         $admin_count = $mapper->all()
             ->where(['permissions' => '{"admin":1}'])
             ->count();
-        $admin_majority = (int) ($admin_count * .501) + 1;
+        $admin_majority = 1; // (int) ($admin_count * .501) + 1;
 
         // Get list of talks where majority of admins 'favorited' them
         $mapper = $this->app['spot']->mapper('OpenCFP\Domain\Entity\Talk');

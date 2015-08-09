@@ -72,17 +72,50 @@ class TalksController extends BaseController
             return $this->redirectTo('login');
         }
 
+        $admin_user_id = $this->app['sentry']->getUser()->getId();
+
         // Get info about the talks
         $talk_mapper = $this->app['spot']->mapper('OpenCFP\Domain\Entity\Talk');
         $talk_id = $req->get('id');
+
         $talk = $talk_mapper->get($talk_id);
+        if ($talk->favorites) {
+            foreach ($talk->favorites as $favorite) {
+                if ($favorite->admin_user_id == $admin_user_id) {
+                    $talk->favorite = 1;
+                }
+            }
+        }
+
         $all_talks = $talk_mapper->all()
             ->where(['user_id' => $talk->user_id])
+            ->with(['favorites'])
             ->toArray();
+        foreach ($all_talks as $idx => $other_talk) {
+            if ($other_talk['favorites']) {
+                foreach ($other_talk['favorites'] as $favorite) {
+                    if ($favorite['admin_user_id'] == $admin_user_id) {
+                        $all_talks[$idx]['favorite'] = 1;
+                    }
+                }
+            }
+        }
 
         // Get info about our speaker
         $user_mapper = $this->app['spot']->mapper('OpenCFP\Domain\Entity\User');
-        $speaker = $user_mapper->get($talk->user_id)->toArray();;
+        $speaker = $user_mapper->get($talk->user_id)->toArray();
+
+        $prev_talk = $talk_mapper
+            ->where(['id <' => $talk_id])
+            ->order(['id' => 'DESC'])
+            ->limit(1)
+            ->toArray();
+
+        $next_talk = $talk_mapper
+            ->where(['id >' => $talk_id])
+            ->order(['id' => 'ASC'])
+            ->limit(1)
+            ->toArray();
 
         // Grab all the other talks and filter out the one we have
         $otherTalks = array_filter($all_talks, function ($talk) use ($talk_id) {
@@ -97,7 +130,9 @@ class TalksController extends BaseController
         $templateData = array(
             'talk' => $talk,
             'speaker' => $speaker,
-            'otherTalks' => $otherTalks
+            'otherTalks' => $otherTalks,
+            'prevTalk' => (empty($prev_talk[0]) ? false : $prev_talk[0]),
+            'nextTalk' => (empty($next_talk[0]) ? false : $next_talk[0]),
         );
 
         return $this->render('admin/talks/view.twig', $templateData);

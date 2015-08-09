@@ -65,15 +65,23 @@ class Talk extends Mapper
         $favorite_talks = [];
 
         foreach ($talks as $talk) {
-            if ($talk->favorites->count() >= $admin_majority) {
-                $favorite_talks[] = $talk;
+            $c = $talk->favorites->count();
+            if ($c >= $admin_majority) {
+                if (empty($favorite_talks[$c])) {
+                    $favorite_talks[$c] = [];
+                }
+                $favorite_talks[$c][] = $talk;
             }
         }
 
+        krsort($favorite_talks);
+
         $formatted = [];
 
-        foreach ($favorite_talks as $talk) {
-            $formatted[] = $this->createdFormattedOutput($talk, $admin_user_id);
+        foreach (array_keys($favorite_talks) as $c) {
+            foreach ($favorite_talks[$c] as $talk) {
+                $formatted[] = $this->createdFormattedOutput($talk, $admin_user_id);
+            }
         }
 
         return $formatted;
@@ -114,7 +122,8 @@ class Talk extends Mapper
             'type' => $talk->type,
             'created_at' => $talk->created_at,
             'selected' => $talk->selected,
-            'favorite' => $talk->favorite
+            'favorite' => $talk->favorite,
+            'favorites_count' => $talk->favorites->count(),
         ];
 
         if ($talk->speaker) {
